@@ -2,6 +2,13 @@
 
 **Highlights**
 
+* The provided data is loaded as JSON varialbe for ease of use
+* Data can be edited and sorted before export
+* Data is paginated
+* Only single column sorting is supported and enabled for the following columns:
+  * Total Rushing Yards (Yds)
+  * Longest Rush (Lng)
+  * Total Rushing Touchdowns (TD)
 
 ## Installation
 
@@ -21,4 +28,8 @@ Run <code>npm build</code> at client folder
 
 Open `index.html` in the browser to view the app
 
-## License
+* sort one of the 3 columns by clicking on it
+
+## For Development
+
+Run <code>npm run run</code> at client folder

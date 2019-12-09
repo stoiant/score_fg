@@ -23,6 +23,7 @@
     "jsgrid": "^1.5.3",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
+    "numeral": "^2.0.6",
     "popper.js": "^1.16.0",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
@@ -34,7 +35,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "watch": "webpack --watch webpack.config.js"
+    "run": "npm run build -- --watch"
   },
   "browserslist": [
     ">0.2%",
