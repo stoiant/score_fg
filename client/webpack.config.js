@@ -4,6 +4,8 @@ const webpack = require('webpack');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/js/index.js',
@@ -14,24 +16,34 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"],
-      }, {
         test: /\.css$/,
-        loaders: ["style", "css"],
+        loaders: ['style-loader', 'css-loader'],
       }, {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]",
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]',
       }, {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "file?name=fonts/[name].[ext]",
+        loader: 'file?name=fonts/[name].[ext]',
       }, {
         test: /\.(jpe?g|png|gif)$/,
         loader: 'file?name=img/[name].[ext]',
+      }, {
+        test: /\.(scss)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      Util: 'exports-loader?Util!bootstrap/js/dist/util',
+    }),
     new HtmlWebpackPlugin({
       title: 'theScore Demo',
       template: './src/index.html',
@@ -47,10 +59,6 @@ module.exports = {
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false,
       cleanOnceBeforeBuildPatterns: ['**/*'],
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
     }),
     new BrowserSyncPlugin({
       server: {
@@ -73,6 +81,15 @@ module.exports = {
     },
     ]),
   ],
+  resolve: {
+    extensions: [
+      '.js',
+    ],
+    modules: [
+      path.resolve(__dirname, 'scripts'),
+      'node_modules',
+    ],
+  },
   stats: {
     colors: true,
   },
