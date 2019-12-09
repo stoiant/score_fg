@@ -9,10 +9,10 @@
   * Total Rushing Yards (Yds)
   * Longest Rush (Lng)
   * Total Rushing Touchdowns (TD)
-* To filter by player name, enter the name of the player then either press 
+* To filter by player name, enter the name of the player then either press
 enter or use the search button. Filtering is supported after the searching
 the data
-
+* To export the data click export and the current data view will be exported
 
 ## Installation
 
@@ -37,3 +37,13 @@ Open `index.html` in the browser to view the app
 ## For Development
 
 Run <code>npm run run</code> at client folder
+
+## Testing
+
+* validation has been made that all requirements have been met with a very
+basic manual testing, porper sorting and exporting covering malformed data or
+data formated with a different locale
+* basic testing for the provided data set has been performed, number values
+that contain numbers whith commas or string value at the end are displayed
+as provided, however they are sorted based on the numeric value
+* no automated testing has been setup
