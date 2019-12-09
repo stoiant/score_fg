@@ -8,6 +8,12 @@ import 'jsgrid/dist/jsgrid-theme.css';
 import 'jsgrid/dist/jsgrid.css';
 
 import {players} from './players';
+import numeral from 'numeral';
+import _ from 'underscore';
+
+const sortNum = (a, b) => {
+  return numeral(a).value() - numeral(b).value();
+};
 
 const loadGrid = () => {
   $('#jsGrid').jsGrid({
@@ -20,18 +26,22 @@ const loadGrid = () => {
     paging: true,
     autoload: true,
     filtering: true,
-    pageSize: 25,
+    pageSize: 15,
     pageButtonCount: 5,
 
     deleteConfirm: 'Do you really want to delete the player?',
 
     controller: {
       loadData: function(filter) {
-        console.log(filter);
-        return players;
+        if (!filter.Player) {
+          return players;
+        } else {
+          return _.filter(players, function(item) {
+            return item.Player.toLowerCase().indexOf(filter.Player.toLowerCase()) != -1;
+          });
+        }
       },
     },
-
     // Player(Player 's name)
     fields: [{
       name: 'Player',
@@ -44,84 +54,112 @@ const loadGrid = () => {
       name: 'Team',
       type: 'text',
       width: 50,
+      filtering: false,
+      sorting: false,
     },
     // Pos(Player 's postion)
     {
       name: 'Pos',
       type: 'text',
       width: 30,
+      filtering: false,
+      sorting: false,
     },
     // Att / G(Rushing Attempts Per Game Average)
     {
-      name: 'Att/G"',
+      name: 'Att/G',
       type: 'number',
-      width: 30,
+      width: 70,
+      filtering: false,
+      sorting: false,
     },
     // Att(Rushing Attempts)
     {
       name: 'Att',
       type: 'number',
       width: 30,
+      filtering: false,
+      sorting: false,
     },
     // Yrds(Total Rushing Yards)
     {
       name: 'Yds',
       type: 'number',
       width: 50,
+      sorter: sortNum,
+      filtering: false,
     },
     // Avg(Rushing Average Yards Per Attempt)
     {
       name: 'Avg',
       type: 'number',
       width: 30,
+      filtering: false,
+      sorting: false,
     },
     // Yds / G(Rushing Yards Per Game)
     {
       name: 'Yds/G',
       type: 'number',
-      width: 30,
+      width: 50,
+      filtering: false,
+      sorting: false,
     },
     // TD(Total Rushing Touchdowns)
     {
       name: 'TD',
       type: 'number',
       width: 30,
+      sorter: sortNum,
+      filtering: false,
     },
     // Lng(Longest Rush--a T represents a touchdown occurred)
     {
       name: 'Lng',
       type: 'number',
       width: 30,
+      sorter: sortNum,
+      filtering: false,
     },
     // 1 st(Rushing First Downs)
     {
       name: '1st',
       type: 'number',
       width: 30,
+      filtering: false,
+      sorting: false,
     },
     // 1 st % (Rushing First Down Percentage)
     {
       name: '1st%',
       type: 'number',
       width: 30,
+      filtering: false,
+      sorting: false,
     },
     // 20 + (Rushing 20 + Yards Each)
     {
       name: '20+',
       type: 'number',
       width: 30,
+      filtering: false,
+      sorting: false,
     },
     // 40 + (Rushing 40 + Yards Each)
     {
       name: '40+',
       type: 'number',
       width: 30,
+      filtering: false,
+      sorting: false,
     },
     // FUM(Rushing Fumbles).
     {
       name: 'FUM',
       type: 'number',
       width: 30,
+      filtering: false,
+      sorting: false,
     },
     {
       type: 'control',
