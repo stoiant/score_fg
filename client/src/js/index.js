@@ -9,11 +9,14 @@ import 'jsgrid/dist/jsgrid.css';
 
 import {players} from './players';
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const loadGrid = () => {
   $('#jsGrid').jsGrid({
     height: '600px',
 =======
+=======
+>>>>>>>   #3 Display all provided data
 import numeral from 'numeral';
 
 const sortNum = (a, b) => {
@@ -23,6 +26,14 @@ const sortNum = (a, b) => {
 const loadGrid = () => {
   $('#jsGrid').jsGrid({
     height: '500px',
+<<<<<<< HEAD
+=======
+=======
+
+const loadGrid = () => {
+  $('#jsGrid').jsGrid({
+    height: '600px',
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     width: '100%',
 
@@ -33,9 +44,15 @@ const loadGrid = () => {
     autoload: true,
     filtering: true,
 <<<<<<< HEAD
+<<<<<<< HEAD
     pageSize: 25,
 =======
     pageSize: 15,
+=======
+    pageSize: 15,
+=======
+    pageSize: 25,
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     pageButtonCount: 5,
 
@@ -44,8 +61,13 @@ const loadGrid = () => {
     controller: {
       loadData: function(filter) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log(filter);
 =======
+=======
+=======
+        console.log(filter);
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
         return players;
       },
@@ -64,9 +86,15 @@ const loadGrid = () => {
       type: 'text',
       width: 50,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       filtering: false,
       sorting: false,
+=======
+      filtering: false,
+      sorting: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // Pos(Player 's postion)
@@ -75,6 +103,7 @@ const loadGrid = () => {
       type: 'text',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     // Att / G(Rushing Attempts Per Game Average)
     {
@@ -82,6 +111,8 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 =======
+=======
+>>>>>>>   #3 Display all provided data
       filtering: false,
       sorting: false,
     },
@@ -92,6 +123,16 @@ const loadGrid = () => {
       width: 50,
       filtering: false,
       sorting: false,
+<<<<<<< HEAD
+=======
+=======
+    },
+    // Att / G(Rushing Attempts Per Game Average)
+    {
+      name: 'Att/G"',
+      type: 'number',
+      width: 30,
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // Att(Rushing Attempts)
@@ -100,9 +141,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       filtering: false,
       sorting: false,
+=======
+      filtering: false,
+      sorting: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // Yrds(Total Rushing Yards)
@@ -111,9 +158,15 @@ const loadGrid = () => {
       type: 'number',
       width: 50,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       sorter: sortNum,
       filtering: false,
+=======
+      sorter: sortNum,
+      filtering: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // Avg(Rushing Average Yards Per Attempt)
@@ -122,9 +175,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       filtering: false,
       sorting: false,
+=======
+      filtering: false,
+      sorting: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // Yds / G(Rushing Yards Per Game)
@@ -132,11 +191,19 @@ const loadGrid = () => {
       name: 'Yds/G',
       type: 'number',
 <<<<<<< HEAD
+<<<<<<< HEAD
       width: 30,
 =======
       width: 50,
       filtering: false,
       sorting: false,
+=======
+      width: 50,
+      filtering: false,
+      sorting: false,
+=======
+      width: 30,
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // TD(Total Rushing Touchdowns)
@@ -145,9 +212,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       sorter: sortNum,
       filtering: false,
+=======
+      sorter: sortNum,
+      filtering: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // Lng(Longest Rush--a T represents a touchdown occurred)
@@ -156,9 +229,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       sorter: sortNum,
       filtering: false,
+=======
+      sorter: sortNum,
+      filtering: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // 1 st(Rushing First Downs)
@@ -167,9 +246,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       filtering: false,
       sorting: false,
+=======
+      filtering: false,
+      sorting: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // 1 st % (Rushing First Down Percentage)
@@ -178,9 +263,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       filtering: false,
       sorting: false,
+=======
+      filtering: false,
+      sorting: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // 20 + (Rushing 20 + Yards Each)
@@ -189,9 +280,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       filtering: false,
       sorting: false,
+=======
+      filtering: false,
+      sorting: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // 40 + (Rushing 40 + Yards Each)
@@ -200,9 +297,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       filtering: false,
       sorting: false,
+=======
+      filtering: false,
+      sorting: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     // FUM(Rushing Fumbles).
@@ -211,9 +314,15 @@ const loadGrid = () => {
       type: 'number',
       width: 30,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       filtering: false,
       sorting: false,
+=======
+      filtering: false,
+      sorting: false,
+=======
+>>>>>>>   #3 Display all provided data
 >>>>>>>   #3 Display all provided data
     },
     {
