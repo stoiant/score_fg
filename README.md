@@ -1,4 +1,4 @@
-#the Rush App 
+#the Rush App
 
 **Highlights**
 
@@ -9,6 +9,10 @@
   * Total Rushing Yards (Yds)
   * Longest Rush (Lng)
   * Total Rushing Touchdowns (TD)
+* To filter by player name, enter the name of the player then either press 
+enter or use the search button. Filtering is supported after the searching
+the data
+
 
 ## Installation
 
