@@ -10,6 +10,49 @@ import 'jsgrid/dist/jsgrid.css';
 import {players} from './players';
 import numeral from 'numeral';
 import _ from 'underscore';
+import Papa from 'papaparse';
+
+const downloadCsv = (data, filename, mimetype = 'application/octet-stream') => {
+  if (!data) return;
+
+  let blob = data.constructor !== Blob ?
+    new Blob([data], {
+      type: mimetype || 'application/octet-stream'
+    }) :
+    data;
+
+  if (navigator.msSaveBlob) {
+    navigator.msSaveBlob(blob, filename);
+    return;
+  }
+
+  let lnk = document.createElement('a'),
+    url = window.URL,
+    objectURL;
+
+  if (mimetype) {
+    lnk.type = mimetype;
+  }
+
+  lnk.download = filename || 'untitled';
+  lnk.href = objectURL = url.createObjectURL(blob);
+  lnk.dispatchEvent(new MouseEvent('click'));
+  setTimeout(url.revokeObjectURL.bind(url, objectURL));
+};
+
+const exportToCsv = (data, columns) => {
+  const config = {
+    quotes: true, //or array of booleans
+    quoteChar: '"',
+    escapeChar: '"',
+    delimiter: ',',
+    header: true,
+    newline: '\r\n',
+    skipEmptyLines: true, //or 'greedy',
+    columns: columns //or array of strings
+  };
+  return Papa.unparse(data, config);
+};
 
 const sortNum = (a, b) => {
   return numeral(a).value() - numeral(b).value();
@@ -170,4 +213,10 @@ const loadGrid = () => {
 
 $(document).ready(() => {
   loadGrid();
+  $('#export').click(function() {
+    const data = $('#jsGrid').jsGrid('option', 'data');
+    const columns = $('#jsGrid').jsGrid.fields;
+    const csvData = exportToCsv(data, columns);
+    downloadCsv(csvData, 'theRushing.csv');
+  });
 });
